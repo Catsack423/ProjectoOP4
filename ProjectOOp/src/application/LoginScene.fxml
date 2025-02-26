@@ -9,25 +9,31 @@
 <?import javafx.scene.text.Text?>
 
 
-<AnchorPane prefHeight="563.0" prefWidth="471.0" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="application.LoginSceneController">
+<AnchorPane fx:id="AnchorLogin" prefHeight="563.0" prefWidth="471.0" styleClass="root" xmlns:fx="http://javafx.com/fxml/1" xmlns="http://javafx.com/javafx/23.0.1" fx:controller="application.LoginSceneController">
    <children>
       <VBox layoutX="69.0" layoutY="189.0" prefHeight="165.0" prefWidth="332.0">
          <children>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="ชื่อผู้ใช้งาน" />
-            <TextField minHeight="10.0" minWidth="281.0">
+            <TextField minHeight="20.0" minWidth="281.0" prefHeight="31.0" prefWidth="332.0">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </padding>
             </TextField>
             <Text strokeType="OUTSIDE" strokeWidth="0.0" text="รหัสผ่าน">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
             </Text>
-            <TextField>
+            <TextField minHeight="31.0" minWidth="281.0" prefHeight="31.0" prefWidth="332.0">
                <VBox.margin>
                   <Insets top="5.0" />
                </VBox.margin>
+               <padding>
+                  <Insets bottom="10.0" left="5.0" right="5.0" top="10.0" />
+               </padding>
             </TextField>
          </children>
       </VBox>
@@ -36,9 +42,9 @@
             <Font size="40.0" />
          </font>
       </Text>
-      <VBox alignment="TOP_CENTER" layoutX="131.0" layoutY="354.0" prefHeight="136.0" prefWidth="208.0">
+      <VBox alignment="TOP_CENTER" layoutX="95.0" layoutY="354.0" prefHeight="136.0" prefWidth="281.0">
          <children>
-            <Button alignment="CENTER" maxHeight="49.0" maxWidth="165.0" minHeight="49.0" minWidth="165.0" mnemonicParsing="false" prefHeight="49.0" prefWidth="165.0" text="เข้าสู่ระบบ" textAlignment="CENTER">
+            <Button alignment="CENTER" minHeight="49.0" minWidth="170.0" mnemonicParsing="false" styleClass="Loginbutton" stylesheets="@style.css" textAlignment="CENTER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>
@@ -46,7 +52,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button minHeight="49.0" minWidth="165.0" mnemonicParsing="false" text="สร้างบัญชี">
+            <Button minHeight="49.0" minWidth="170.0" mnemonicParsing="false" prefWidth="199.0" styleClass="CreateAccoutbutton" stylesheets="@style.css" text="สร้างบัญชี">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>

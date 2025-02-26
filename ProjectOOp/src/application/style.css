@@ -1,0 +1,41 @@
+.Button{
+	-fx-background-color: linear-gradient(to bottom, #A73B24, #ff4500);
+	-fx-text-fill: black;
+	-fx-font-size: 18px;
+	-fx-padding: 10px 20px;
+	-fx-border-radius: 15px;
+	-fx-background-radius: 5px;
+}
+
+.root {
+    -fx-background-color: #f4f4f4;
+}
+
+
+
+.CreateAccoutbutton {
+    -fx-background-image: url("crateaccoutButton.png");  /* ใส่รูปภาพ */
+    -fx-background-size: cover;                     /* ปรับขนาดรูปให้เต็มปุ่ม */
+    -fx-background-repeat: no-repeat;               /* ไม่ให้รูปซ้ำ */
+    -fx-background-position: center;                /* จัดให้อยู่ตรงกลาง */
+    -fx-padding: 0;                                 /* ลบ Padding ออก */                               /* ลบขอบออก */
+    -fx-text-fill: transparent;                     /* ซ่อนข้อความ */
+    -fx-pref-width: 100px;                          /* กำหนดความกว้าง */
+    -fx-pref-height: 50px;   
+	-fx-background-radius: 10px; /* ทำให้ขอบมน */
+	-fx-border-radius: 10px; /* ปรับขอบมนของขอบปุ่ม */                     /* กำหนดความสูง */
+}
+
+
+.Loginbutton {
+    -fx-background-image: url("LoginButtonpng.png");  /* ใส่รูปภาพ */
+    -fx-background-size: cover;                     /* ปรับขนาดรูปให้เต็มปุ่ม */
+    -fx-background-repeat: no-repeat;               /* ไม่ให้รูปซ้ำ */
+    -fx-background-position: center;                /* จัดให้อยู่ตรงกลาง */
+    -fx-padding: 0;                                 /* ลบ Padding ออก */                               /* ลบขอบออก */
+    -fx-text-fill: transparent;                     /* ซ่อนข้อความ */
+    -fx-pref-width: 100px;                          /* กำหนดความกว้าง */
+    -fx-pref-height: 50px;   
+	-fx-background-radius: 10px; /* ทำให้ขอบมน */
+	-fx-border-radius: 10px; /* ปรับขอบมนของขอบปุ่ม */                     /* กำหนดความสูง */
+}
