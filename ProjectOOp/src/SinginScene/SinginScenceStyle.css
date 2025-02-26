@@ -1,0 +1,30 @@
+.Loginbutton {
+    -fx-background-image: url("crateAccountButton.png");  /* ใส่รูปภาพ */
+    -fx-background-size: cover;                     /* ปรับขนาดรูปให้เต็มปุ่ม */
+    -fx-background-repeat: no-repeat;               /* ไม่ให้รูปซ้ำ */
+    -fx-background-position: center;                /* จัดให้อยู่ตรงกลาง */
+    -fx-padding: 0;                                 /* ลบ Padding ออก */                               /* ลบขอบออก */
+    -fx-text-fill: transparent;                     /* ซ่อนข้อความ */
+    -fx-pref-width: 100px;                          /* กำหนดความกว้าง */
+    -fx-pref-height: 50px;   
+	-fx-background-radius: 10px; /* ทำให้ขอบมน */
+	-fx-border-radius: 10px; /* ปรับขอบมนของขอบปุ่ม */                     /* กำหนดความสูง */
+}
+
+
+
+.ArrowBackButton{
+	-fx-background-image: url("GoBack2.png");  /* ใส่รูปภาพ */
+	    
+	-fx-background-position: center;              
+	-fx-background-radius: 50%;
+	-fx-padding: 0;
+	-fx-border-radius: 50%;
+	-fx-border-color: transparent;
+	
+}
+
+.BackgroundScenc{
+	-fx-background-color: #f4f4f4;
+
+}
