@@ -10,11 +10,16 @@ import java.util.TimerTask;
 
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Stage;
 public class LoginSceneController {
     @FXML
     private AnchorPane AnchorLogin;
@@ -38,6 +43,9 @@ public class LoginSceneController {
     private PreparedStatement prepar;
     private ResultSet result;
     private Statement statement;
+    private Stage stage;
+	private Scene scene;
+	private Parent root;
 
     
     
@@ -86,7 +94,19 @@ public class LoginSceneController {
     
     
   
-    
+    public void creataccountclicked(ActionEvent e) {
+    	try {
+    		FXMLLoader loader = new FXMLLoader(getClass().getResource("/SinginScene/SinginScene.fxml"));
+    	    root = loader.load();
+    	    stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+    	    scene = new Scene(root);
+    	    stage.setScene(scene);
+    	    stage.show();
+		} catch (Exception e2) {
+			e2.printStackTrace();
+		}
+    	
+    }
     
     
     
