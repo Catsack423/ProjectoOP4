@@ -2,6 +2,14 @@ package application;
 
 
 
+
+
+
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -32,6 +40,11 @@ public class LoginSceneController {
     @FXML
     private Label ErorLabel;
     
+    private Connection connect;
+    private PreparedStatement prepar;
+    private ResultSet result;
+    private Statement statement;
+
     
     
     public void LoginButtonClick(ActionEvent e) {
@@ -55,8 +68,30 @@ public class LoginSceneController {
     }
     
     
+    public static Connection connectionDB() {
+    	String URL = "jdbc:mysql://localhost:3306/maketapp";
+        String USER = "root";
+        String PASSWORD = "kimbap001";
+    	try {
+    		Class.forName("com.mysql.jdbc.Driver");
+    		Connection connect = DriverManager.getConnection(URL,USER,PASSWORD);
+    		return connect;
+			
+		} catch (Exception e) {
+			e.printStackTrace();
+		}
+    	return null;
+    }
     
     
+    
+    public void login() {
+    	
+    }
+    
+    
+    
+  
     
     
     

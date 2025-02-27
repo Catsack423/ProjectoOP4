@@ -1,5 +1,11 @@
 package SinginScene;
 
+import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.ResultSet;
+import java.sql.Statement;
+
+import application.LoginSceneController;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
@@ -25,9 +31,16 @@ public class SinginSceneController {
     @FXML
     private TextField UsernameTextFiled;
     
+    private Connection connect;
+    private PreparedStatement prepar;
+    private ResultSet result;
+    private Statement statement;
     
     
+<<<<<<< Updated upstream
     
+=======
+>>>>>>> Stashed changes
     public void CreatAccount() {
     	String username = UsernameTextFiled.getText();
     	String password= PassTextFiled.getText();
@@ -53,6 +66,36 @@ public class SinginSceneController {
     		ErorLabel.setText("Please Enter same password");
     		ErorLabel.setVisible(true);
     		return;
+<<<<<<< Updated upstream
+=======
+    	}else {
+    		// check if username already used
+    		try {
+    			String checkUsernameString = "SELECT * FROM maketapp WHERE username = '"
+        				+username+"'";
+    			Connection connect = LoginSceneController.connectionDB();
+        		statement = connect.createStatement();
+        		result = statement.executeQuery(checkUsernameString);
+        		if(result.next()) {
+        			ErorLabel.setText("This username has been already used!!");
+            		ErorLabel.setVisible(true);
+        		}else {
+        			
+        			String insertDataString ="INSERT INTO useraccount" +" (username,password) "
+        					+"VALUES(?,?)";//? ตัวแปรที่ตัองมาset code below
+        			prepar = connect.prepareStatement(insertDataString);
+        			prepar.setString(1, username);
+        			prepar.setString(2, password);
+        			prepar.executeUpdate();
+        			ErorLabel.setText("Login successful");
+        		}
+        		
+        		
+			} catch (Exception e) {e.printStackTrace();}
+    		
+    		
+    		
+>>>>>>> Stashed changes
     	}
     	
     	
