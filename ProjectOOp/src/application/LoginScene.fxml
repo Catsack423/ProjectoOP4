@@ -58,7 +58,7 @@
                   <Font size="21.0" />
                </font>
             </Button>
-            <Button fx:id="CreateAccountButton" minHeight="49.0" minWidth="170.0" mnemonicParsing="false" prefWidth="199.0" styleClass="CreateAccoutbutton" stylesheets="@style.css" text="สร้างบัญชี">
+            <Button fx:id="CreateAccountButton" minHeight="49.0" minWidth="170.0" mnemonicParsing="false" onAction="#creataccountclicked" prefWidth="199.0" styleClass="CreateAccoutbutton" stylesheets="@style.css" text="สร้างบัญชี">
                <VBox.margin>
                   <Insets top="20.0" />
                </VBox.margin>
