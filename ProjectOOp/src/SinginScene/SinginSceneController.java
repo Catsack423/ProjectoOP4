@@ -1,16 +1,28 @@
 package SinginScene;
 
+import java.awt.Color;
+import java.security.PublicKey;
 import java.sql.Connection;
+
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
+import java.util.Date;
+import java.util.Timer;
+import java.util.TimerTask;
 
 import application.LoginSceneController;
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Node;
+import javafx.scene.Parent;
+import javafx.scene.Scene;
 import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.stage.Stage;
 
 public class SinginSceneController {
 	@FXML
@@ -35,14 +47,18 @@ public class SinginSceneController {
     private PreparedStatement prepar;
     private ResultSet result;
     private Statement statement;
+    private Stage stage;
+	private Scene scene;
+	private Parent root;
     
     
 
 
-    public void CreatAccount() {
+    public void CreatAccount(ActionEvent e) {
     	String username = UsernameTextFiled.getText();
     	String password= PassTextFiled.getText();
     	String repassword = RepasswordTextFiled.getText();
+    	Date date = new Date();
     	
     	if (username.isEmpty() && password.isEmpty()) { // ตรวจสอบว่าฟิลด์ว่างเปล่า
 	    	ErorLabel.setVisible(true);
@@ -60,15 +76,15 @@ public class SinginSceneController {
     		ErorLabel.setText("Password must be more 8 letters");
     		ErorLabel.setVisible(true);
     		return;
-    	}else if(password!=repassword) { //รหัสกับใส่รหัสไม่เหมือนกัน
-    		ErorLabel.setText("Please Enter same password");
+    	}else if(!password.equals(repassword)) { //รหัสกับใส่รหัสไม่เหมือนกัน
+    		ErorLabel.setText("Please Enter same password "+password +"   "+repassword);
     		ErorLabel.setVisible(true);
     		return;
 
     	}else {
-    		// check if username already used
+    		// check if username already used if not go to log in
     		try {
-    			String checkUsernameString = "SELECT * FROM maketapp WHERE username = '"
+    			String checkUsernameString = "SELECT * FROM useraccount WHERE username = '"
         				+username+"'";
     			Connection connect = LoginSceneController.connectionDB();
         		statement = connect.createStatement();
@@ -77,25 +93,48 @@ public class SinginSceneController {
         			ErorLabel.setText("This username has been already used!!");
             		ErorLabel.setVisible(true);
         		}else {
-        			
-        			String insertDataString ="INSERT INTO useraccount" +" (username,password) "
-        					+"VALUES(?,?)";//? ตัวแปรที่ตัองมาset code below
+        			java.sql.Date sqlDate = new java.sql.Date(date.getTime());
+        			String insertDataString ="INSERT INTO useraccount" +" (username,password,date) "
+        					+"VALUES(?,?,?)";//? ตัวแปรที่ตัองมาset code below
         			prepar = connect.prepareStatement(insertDataString);
         			prepar.setString(1, username);
         			prepar.setString(2, password);
+        			prepar.setString(3, String.valueOf(sqlDate));
         			prepar.executeUpdate();
-        			ErorLabel.setText("Login successful");
-        		}
-        		
-        		
-			} catch (Exception e) {e.printStackTrace();}
+        			ErorLabel.setText("Create Account successful");
+        			ErorLabel.setVisible(true);
+        			try {
+        			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/LoginScene.fxml"));
+			    	root = loader.load();
+			    	stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+			    	scene = new Scene(root);
+			    	stage.setScene(scene);
+			    	stage.setResizable(false);
+			    	stage.show();
+					} catch (Exception e2) {e2.printStackTrace();}
+        			}} catch (Exception e3) {e3.printStackTrace();}
+    			}	
+			}
+    
+    
+    
+    
+    
+    public void ArrowbackClicked(ActionEvent e) {
+    		try {
+    			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/LoginScene.fxml"));
+	    	    root = loader.load();
+	    	    stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+	    	    scene = new Scene(root);
+	    	    stage.setScene(scene);
+	    	    stage.setResizable(false);
+	    	    stage.show();
+			
+				} catch (Exception e2) {
+				// TODO: handle exception
+				}
     		
-    		
-    		
-
-    	}
-    	
-    	
-    	
-	}
+		}
+    
+	    
 }

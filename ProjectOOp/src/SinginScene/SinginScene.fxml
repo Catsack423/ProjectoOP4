@@ -63,6 +63,6 @@
             <Font size="21.0" />
          </font>
       </Button>
-      <Button fx:id="ArrowbackButton" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" prefHeight="50.0" prefWidth="50.0" style="-fx-border-radius: 40;" styleClass="ArrowBackButton" stylesheets="@SinginScenceStyle.css" />
+      <Button fx:id="ArrowbackButton" layoutX="27.0" layoutY="35.0" mnemonicParsing="false" onAction="#ArrowbackClicked" prefHeight="50.0" prefWidth="50.0" style="-fx-border-radius: 40;" styleClass="ArrowBackButton" stylesheets="@SinginScenceStyle.css" />
    </children>
 </AnchorPane>
