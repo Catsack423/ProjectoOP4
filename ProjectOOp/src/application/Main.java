@@ -16,6 +16,7 @@ public class Main extends Application {
             Parent root = loader.load();
 			primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Login Page");
+            primaryStage.setResizable(false);
             primaryStage.show();
 		} catch(Exception e) {
 			e.printStackTrace();
