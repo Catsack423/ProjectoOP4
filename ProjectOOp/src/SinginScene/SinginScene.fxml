@@ -58,7 +58,7 @@
             <Font size="40.0" />
          </font>
       </Text>
-      <Button fx:id="CreatAccountButton" alignment="CENTER" layoutX="151.0" layoutY="407.0" minHeight="49.0" minWidth="170.0" mnemonicParsing="false" onAction="#LoginButtonClick" styleClass="Loginbutton" stylesheets="@SinginScenceStyle.css" textAlignment="CENTER">
+      <Button fx:id="CreatAccountButton" alignment="CENTER" layoutX="151.0" layoutY="407.0" minHeight="49.0" minWidth="170.0" mnemonicParsing="false" onAction="#CreatAccount" styleClass="Loginbutton" stylesheets="@SinginScenceStyle.css" textAlignment="CENTER">
          <font>
             <Font size="21.0" />
          </font>
