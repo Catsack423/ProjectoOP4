@@ -37,10 +37,8 @@ public class SinginSceneController {
     private Statement statement;
     
     
-<<<<<<< Updated upstream
-    
-=======
->>>>>>> Stashed changes
+
+
     public void CreatAccount() {
     	String username = UsernameTextFiled.getText();
     	String password= PassTextFiled.getText();
@@ -66,8 +64,7 @@ public class SinginSceneController {
     		ErorLabel.setText("Please Enter same password");
     		ErorLabel.setVisible(true);
     		return;
-<<<<<<< Updated upstream
-=======
+
     	}else {
     		// check if username already used
     		try {
@@ -95,7 +92,7 @@ public class SinginSceneController {
     		
     		
     		
->>>>>>> Stashed changes
+
     	}
     	
     	
