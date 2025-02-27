@@ -10,4 +10,5 @@ module ProjectOOp {
 	
 	opens application to javafx.graphics, javafx.fxml;
 	opens SinginScene to javafx.graphics, javafx.fxml;
+	opens ClassHelper to javafx.graphics,javafx.fxml;
 }
