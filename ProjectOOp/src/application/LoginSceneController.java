@@ -1,10 +1,5 @@
 package application;
 
-
-
-
-
-
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
@@ -20,7 +15,6 @@ import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.layout.AnchorPane;
-
 public class LoginSceneController {
     @FXML
     private AnchorPane AnchorLogin;
