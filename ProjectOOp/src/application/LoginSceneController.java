@@ -4,6 +4,7 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
+import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -71,18 +72,42 @@ public class LoginSceneController {
     
     
     public static Connection connectionDB() {
-    	String URL = "jdbc:mysql://localhost:3306/maketapp";
-        String USER = "root";
-        String PASSWORD = "kimbap001";
-    	try {
-    		Class.forName("com.mysql.jdbc.Driver");
-    		Connection connect = DriverManager.getConnection(URL,USER,PASSWORD);
-    		return connect;
-			
-		} catch (Exception e) {
-			e.printStackTrace();
-		}
-    	return null;
+    ;
+        try {
+            // แสดง message เพื่อตรวจสอบว่าเข้าถึงเมธอดนี้หรือไม่
+            System.out.println("กำลังเชื่อมต่อกับฐานข้อมูล...");
+            
+            // Load driver
+            Class.forName("com.mysql.cj.jdbc.Driver");
+            System.out.println("โหลด Driver สำเร็จ");
+            
+            // สร้าง connection string ที่มีพารามิเตอร์เพิ่มเติม
+            String url = "jdbc:mysql://localhost:3306/marketapp";
+            String user = "face";
+            String password = "kimbap001";
+            
+            System.out.println("กำลังพยายามเชื่อมต่อกับ URL: " + url);
+            
+            // ทดลองเชื่อมต่อ
+            Connection connect = DriverManager.getConnection(url, user, password);
+            System.out.println("เชื่อมต่อกับฐานข้อมูลสำเร็จ");
+            
+            return connect;
+        } catch (ClassNotFoundException e) {
+            System.out.println("ไม่พบ JDBC Driver: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        } catch (SQLException e) {
+            System.out.println("เกิดข้อผิดพลาดในการเชื่อมต่อฐานข้อมูล: " + e.getMessage());
+            System.out.println("SQL State: " + e.getSQLState());
+            System.out.println("Error Code: " + e.getErrorCode());
+            e.printStackTrace();
+            return null;
+        } catch (Exception e) {
+            System.out.println("ข้อผิดพลาดที่ไม่รู้จัก: " + e.getMessage());
+            e.printStackTrace();
+            return null;
+        }
     }
     
     
@@ -101,6 +126,7 @@ public class LoginSceneController {
     	    stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
     	    scene = new Scene(root);
     	    stage.setScene(scene);
+    	    stage.setResizable(false);
     	    stage.show();
 		} catch (Exception e2) {
 			e2.printStackTrace();
