@@ -9,6 +9,7 @@ import java.sql.Statement;
 import java.util.Timer;
 import java.util.TimerTask;
 
+import ClassHelper.Alertmeassage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -50,7 +51,7 @@ public class LoginSceneController {
 
     
     
-    public void LoginButtonClick(ActionEvent e) {
+    /*public void LoginButtonClick(ActionEvent e) {
     	
     	String username = UsernameTextFiled.getText();
     	String password= PassTextFiled.getText();
@@ -68,7 +69,7 @@ public class LoginSceneController {
     	} 	
     	
     	
-    }
+    }*/
     
     
     public static Connection connectionDB() {
@@ -112,7 +113,43 @@ public class LoginSceneController {
     
     
     
-    public void login() {
+    public void login(ActionEvent e) {
+    	Alertmeassage alertmeassage = new Alertmeassage();
+    	String username = UsernameTextFiled.getText();
+    	String password = PassTextFiled.getText();
+    	
+    	if(username.isEmpty() && password.isEmpty()) {
+    		alertmeassage.errorMessage("Please Enter username and password");
+    		
+    	}else if(username.isEmpty() || password.isEmpty()) {
+    		alertmeassage.errorMessage("username or password cannot be emthy");
+    		
+    	}else {
+    		String selectData = "SELECT username,password FROM useraccount WHERE "+"username = ? and password = ?";
+    		Connection connect = connectionDB();
+    		try {
+    			//เชื่อมdatabaseเพื่อหาusername
+    			statement = connect.createStatement();
+        		prepar=connect.prepareStatement(selectData);
+        		prepar.setString(1, username);
+        		prepar.setString(2, password);
+        		result = prepar.executeQuery();  
+        		if(result.next()) {
+        			//แสดงว่ามีข้อมูล
+        			System.out.println("Founded");
+        			alertmeassage.succesMessage("Welcome");
+
+        			///
+        		}else {
+        			alertmeassage.errorMessage("Please enter correct username and password");
+        		}
+        		
+        	
+			} catch (Exception e3) {
+					e3.printStackTrace();
+			}
+    		
+    	}
     	
     }
     

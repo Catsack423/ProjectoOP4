@@ -50,7 +50,7 @@
       </Text>
       <VBox alignment="TOP_CENTER" layoutX="95.0" layoutY="354.0" prefHeight="136.0" prefWidth="281.0">
          <children>
-            <Button fx:id="loginButton" alignment="CENTER" minHeight="49.0" minWidth="170.0" mnemonicParsing="false" onAction="#LoginButtonClick" styleClass="Loginbutton" stylesheets="@style.css" textAlignment="CENTER">
+            <Button fx:id="loginButton" alignment="CENTER" minHeight="49.0" minWidth="170.0" mnemonicParsing="false" onAction="#login" styleClass="Loginbutton" stylesheets="@style.css" textAlignment="CENTER">
                <VBox.margin>
                   <Insets />
                </VBox.margin>

@@ -1,16 +1,13 @@
 package SinginScene;
 
-import java.awt.Color;
-import java.security.PublicKey;
 import java.sql.Connection;
 
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.Statement;
 import java.util.Date;
-import java.util.Timer;
-import java.util.TimerTask;
 
+import ClassHelper.Alertmeassage;
 import application.LoginSceneController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
@@ -101,9 +98,10 @@ public class SinginSceneController {
         			prepar.setString(2, password);
         			prepar.setString(3, String.valueOf(sqlDate));
         			prepar.executeUpdate();
-        			ErorLabel.setText("Create Account successful");
-        			ErorLabel.setVisible(true);
+        		
         			try {
+        			Alertmeassage alertmeassage = new Alertmeassage();
+        			alertmeassage.succesMessage("Create Account successful");
         			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/LoginScene.fxml"));
 			    	root = loader.load();
 			    	stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
