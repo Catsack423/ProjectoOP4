@@ -7,6 +7,7 @@ import javafx.scene.control.Alert.AlertType;
 public class Alertmeassage {
 	Alert alert;
 	
+
 	public void errorMessage(String mess) {
 		alert = new Alert(AlertType.ERROR);
 		alert.setTitle("Error Message");
@@ -20,7 +21,8 @@ public class Alertmeassage {
 	
 	public void succesMessage(String mess) {
 		alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Information Message");
+		alert.setTitle("Infomation Message");
+
 		alert.setHeaderText(null);
 		alert.setContentText(mess);
 		alert.showAndWait();
