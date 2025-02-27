@@ -1,32 +1,28 @@
 package ClassHelper;
 
+import java.security.KeyStore.PrivateKeyEntry;
+
 
 import javafx.scene.control.Alert;
 import javafx.scene.control.Alert.AlertType;
 
-public class Alertmeassage {
-	Alert alert;
+public class AlertMessage {
+	private Alert alert;
 	
-
-	public void errorMessage(String mess) {
+	public void erorMessage(String mess) {
 		alert = new Alert(AlertType.ERROR);
-		alert.setTitle("Error Message");
+		alert.setTitle("Eror Message");
 		alert.setHeaderText(null);
 		alert.setContentText(mess);
 		alert.showAndWait();
-		
 		
 	}
 	
-	
-	public void succesMessage(String mess) {
+	public void successsMessage(String mess) {
 		alert = new Alert(AlertType.INFORMATION);
-		alert.setTitle("Infomation Message");
-
+		alert.setTitle("Information Message");
 		alert.setHeaderText(null);
 		alert.setContentText(mess);
 		alert.showAndWait();
-		
-		
 	}
 }
