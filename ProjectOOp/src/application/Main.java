@@ -12,7 +12,8 @@ public class Main extends Application {
 	public void start(Stage primaryStage) {
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("LoginScene.fxml"));
-            Parent root = loader.load();
+			//FXMLLoader loader = new FXMLLoader(getClass().getResource("/Homescreen/homescreen.fxml"));
+			Parent root = loader.load();
 			primaryStage.setScene(new Scene(root));
             primaryStage.setTitle("Login Page");
             primaryStage.setResizable(false);

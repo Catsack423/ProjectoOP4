@@ -13,6 +13,7 @@ import java.util.Timer;
 import java.util.TimerTask;
 
 import ClassHelper.Alertmeassage;
+import Homescreen.HomescreenController;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -26,7 +27,10 @@ import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
 import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
+import javafx.stage.Modality;
 import javafx.stage.Stage;
+
+
 public class LoginSceneController implements Initializable{
     @FXML
     private AnchorPane AnchorLogin;
@@ -123,8 +127,25 @@ public class LoginSceneController implements Initializable{
         		result = prepar.executeQuery();  
         		if(result.next()) {
         			//แสดงว่ามีข้อมูล
+     
+        			FXMLLoader loader = new FXMLLoader(getClass().getResource("/Homescreen/homescreen.fxml"));
         			System.out.println("Founded");
         			alertmeassage.succesMessage("Welcome");
+        			try {
+        	    	    root = loader.load();
+        	    	    HomescreenController home = loader.getController();
+            			home.showandsetUsername(UsernameTextFiled.getText());
+            			System.out.println(username);
+        	    	    stage = (Stage) ((Node) e.getSource()).getScene().getWindow();
+        	    	    scene = new Scene(root);
+        	    	    stage.setResizable(true);
+        	    	    stage.setScene(scene);
+        	    	    stage.centerOnScreen();
+        	    	    
+        	    	    stage.show();
+        			} catch (Exception e2) {
+        				e2.printStackTrace();
+        			}
 
         			///
         		}else {
