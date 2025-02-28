@@ -1,11 +1,14 @@
 package application;
 
+import java.net.URL;
+import java.security.AccessControlContext;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ResourceBundle;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -13,6 +16,7 @@ import ClassHelper.Alertmeassage;
 import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
+import javafx.fxml.Initializable;
 import javafx.scene.Node;
 import javafx.scene.Parent;
 import javafx.scene.Scene;
@@ -20,9 +24,10 @@ import javafx.scene.control.Button;
 import javafx.scene.control.Label;
 import javafx.scene.control.PasswordField;
 import javafx.scene.control.TextField;
+import javafx.scene.input.KeyCode;
 import javafx.scene.layout.AnchorPane;
 import javafx.stage.Stage;
-public class LoginSceneController {
+public class LoginSceneController implements Initializable{
     @FXML
     private AnchorPane AnchorLogin;
 
@@ -183,6 +188,23 @@ public class LoginSceneController {
             }
         }, time*1000);
     }
+
+
+
+	@Override
+	public void initialize(URL arg0, ResourceBundle arg1) {
+		UsernameTextFiled.setOnKeyPressed(event -> {
+			if (event.getCode() == KeyCode.ENTER) {
+				login(new ActionEvent());
+			}
+		});
+
+		PassTextFiled.setOnKeyPressed(event -> {
+			if (event.getCode() == KeyCode.ENTER) {
+				login(new ActionEvent());
+			}
+		});		
+	}
     
     
     
