@@ -56,25 +56,7 @@ public class LoginSceneController implements Initializable{
 
     
     
-    /*public void LoginButtonClick(ActionEvent e) {
-    	
-    	String username = UsernameTextFiled.getText();
-    	String password= PassTextFiled.getText();
-    	
-    	if (username.isEmpty() || password.isEmpty()) { // ตรวจสอบว่าฟิลด์ว่างเปล่า
-	    	ErorLabel.setVisible(true);
-	    	ErorLabel.setText("Please enter username and password.");
-	    	delay2second(2);
-	        return;
-	    }else if(username.isEmpty() || password.isEmpty()) {
-    		ErorLabel.setVisible(true);
-    		ErorLabel.setText("Do not leave it emthy");
-    		delay2second(2);
-    		return;
-    	} 	
-    	
-    	
-    }*/
+
     
     
     public static Connection connectionDB() {

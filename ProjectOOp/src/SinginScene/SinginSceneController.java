@@ -1,6 +1,5 @@
 package SinginScene;
 
-import java.awt.RenderingHints.Key;
 import java.net.URL;
 import java.sql.Connection;
 
@@ -45,7 +44,6 @@ public class SinginSceneController implements Initializable {
 	@FXML
 	private TextField UsernameTextFiled;
 
-	private Connection connect;
 	private PreparedStatement prepar;
 	private ResultSet result;
 	private Statement statement;
@@ -54,6 +52,7 @@ public class SinginSceneController implements Initializable {
 	private Parent root;
 
 	public void CreatAccount(ActionEvent e) {
+		//ปุ่มcreate account
 		String username = UsernameTextFiled.getText();
 		String password = PassTextFiled.getText();
 		String repassword = RepasswordTextFiled.getText();
@@ -120,6 +119,7 @@ public class SinginSceneController implements Initializable {
 	}
 
 	public void ArrowbackClicked(ActionEvent e) {
+		//ย้ายกลับไปหน้าlogin
 		try {
 			FXMLLoader loader = new FXMLLoader(getClass().getResource("/application/LoginScene.fxml"));
 			root = loader.load();
@@ -137,6 +137,7 @@ public class SinginSceneController implements Initializable {
 
 	@Override
 	public void initialize(URL arg0, ResourceBundle arg1) {
+		//เพิ่มปุ่มenterทไให้ใช้งานง่ายขึ้น
 		RepasswordTextFiled.setOnKeyPressed(event -> {
 			if (event.getCode() == KeyCode.ENTER) {
 				CreatAccount(new ActionEvent());
