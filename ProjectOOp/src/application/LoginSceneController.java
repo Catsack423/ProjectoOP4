@@ -70,8 +70,8 @@ public class LoginSceneController implements Initializable{
             System.out.println("โหลด Driver สำเร็จ");
             
             // สร้าง connection string ที่มีพารามิเตอร์เพิ่มเติม
-            String url = "jdbc:mysql://localhost:3306/marketapp";
-            String user = "face";
+            String url = "jdbc:mysql://10.62.58.97:3306/marketapp";
+            String user = "root";
             String password = "kimbap001";
             
             System.out.println("กำลังพยายามเชื่อมต่อกับ URL: " + url);
