@@ -28,3 +28,19 @@
 	-fx-background-color: #f4f4f4;
 
 }
+
+/* กำหนดสไตล์พื้นฐานให้กับ TextField */
+.text-field {
+    -fx-background-color: #f4f4f4;  /* สีพื้นหลัง */
+    -fx-border-color: #ccc;  /* สีขอบ */
+    -fx-border-radius: 5px;  /* ทำให้ขอบโค้งมน */
+    -fx-padding: 8px;  /* ระยะห่างภายใน */
+    -fx-font-size: 14px; /* ขนาดตัวอักษร */
+    -fx-font-family: "Arial";
+}
+
+/* เมื่อ TextField ถูกเลือก (โฟกัส) */
+.text-field:focused {
+    -fx-border-color: #4A90E2;  /* เปลี่ยนสีขอบเมื่อคลิก */
+    -fx-background-color: #f4f4f4;
+}
